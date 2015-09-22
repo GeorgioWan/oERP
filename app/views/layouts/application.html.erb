@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>OERP</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render 'shared/navbar' %>
+	<head>
+	  <title>OERP</title>
+	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= csrf_meta_tags %>
+	</head>
+	<body>
 
-<%= yield %>
+		<%= render 'shared/navbar' %>
 
-<%= render 'shared/footer' %>
-</body>
+		<div class="container">
+			<%= render 'shared/notice' %>
+			<%= yield %>				
+		</div>
+
+		<%= render 'shared/footer' %>
+		
+	</body>
 </html>
