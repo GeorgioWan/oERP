@@ -11,7 +11,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150923094350) do
+ActiveRecord::Schema.define(version: 20150924081714) do
+
+  create_table "companies", force: :cascade do |t|
+    t.string   "companyCode", default: "", null: false
+    t.string   "nameFull",    default: "", null: false
+    t.string   "nameShort",   default: "", null: false
+    t.string   "level",       default: "", null: false
+    t.string   "phone",       default: "", null: false
+    t.string   "fax",         default: "", null: false
+    t.string   "taxId",       default: "", null: false
+    t.string   "email",       default: "", null: false
+    t.string   "address",     default: "", null: false
+    t.text     "remark",      default: "", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "companies", ["companyCode"], name: "index_companies_on_companyCode", unique: true
+
+  create_table "job_titles", force: :cascade do |t|
+    t.string   "title",      default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "job_titles", ["title"], name: "index_job_titles_on_title", unique: true
+
+  create_table "people", force: :cascade do |t|
+    t.string   "nameFull",   default: "", null: false
+    t.string   "nameShort",  default: "", null: false
+    t.string   "phone",      default: "", null: false
+    t.string   "email",      default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               default: "", null: false
