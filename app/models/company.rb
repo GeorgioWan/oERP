@@ -1,4 +1,5 @@
 class Company < ActiveRecord::Base
+	has_many :people
 
 	validates_uniqueness_of :companyCode
 	validates_presence_of :companyCode, :nameShort
