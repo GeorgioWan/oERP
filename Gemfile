@@ -45,9 +45,12 @@ gem 'simple_form'
 gem 'rails-i18n'
 gem 'devise-i18n'
 
+
 group :development, :test do
+  # Use hirb, pry, awesome_print in Console
+  gem 'awesome_rails_console'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  #gem 'byebug'
 
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'

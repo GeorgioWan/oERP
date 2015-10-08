@@ -40,6 +40,15 @@ GEM
     autoprefixer-rails (6.0.2)
       execjs
       json
+    awesome_print (1.6.1)
+    awesome_rails_console (0.2.1)
+      awesome_print
+      hirb
+      hirb-unicode
+      pry-byebug
+      pry-rails
+      pry-stack_explorer
+      railties
     bcrypt (3.1.10)
     better_errors (2.1.1)
       coderay (>= 1.0.0)
@@ -51,7 +60,8 @@ GEM
       autoprefixer-rails (>= 5.0.0.1)
       sass (>= 3.3.0)
     builder (3.2.2)
-    byebug (6.0.2)
+    byebug (5.0.0)
+      columnize (= 0.9.0)
     coderay (1.1.0)
     coffee-rails (4.1.0)
       coffee-script (>= 2.2.0)
@@ -60,6 +70,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.9.1.1)
+    columnize (0.9.0)
     debug_inspector (0.0.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
@@ -73,6 +84,10 @@ GEM
     execjs (2.6.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
+    hirb-unicode (0.0.5)
+      hirb (~> 0.5)
+      unicode-display_width (~> 0.1.1)
     i18n (0.7.0)
     jbuilder (2.3.1)
       activesupport (>= 3.0.0, < 5)
@@ -86,6 +101,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
+    method_source (0.8.2)
     mime-types (2.6.2)
     mini_portile (0.6.2)
     minitest (5.8.0)
@@ -93,6 +109,18 @@ GEM
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
+    pry (0.10.2)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-byebug (3.2.0)
+      byebug (~> 5.0)
+      pry (~> 0.10)
+    pry-rails (0.3.4)
+      pry (>= 0.9.10)
+    pry-stack_explorer (0.4.9.2)
+      binding_of_caller (>= 0.7)
+      pry (>= 0.9.11)
     rack (1.6.4)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -140,6 +168,7 @@ GEM
     simple_form (3.1.1)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
+    slop (3.6.0)
     spring (1.4.0)
     sprockets (3.3.4)
       rack (~> 1.0)
@@ -158,6 +187,7 @@ GEM
     uglifier (2.7.2)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
+    unicode-display_width (0.1.1)
     warden (1.2.3)
       rack (>= 1.0)
     web-console (2.2.1)
@@ -170,11 +200,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_rails_console
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller
   bootstrap-sass
-  byebug
   coffee-rails (~> 4.1.0)
   devise
   devise-i18n
