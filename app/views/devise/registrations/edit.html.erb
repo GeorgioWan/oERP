@@ -11,16 +11,17 @@
       <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
     <% end %>
 
-    <%= f.input :phone, autofocus: true, placeholder: '- ex. 0987654321..', as: :tel %>    
+    <%= f.input :phone, autofocus: true, placeholder: '- ex. 0987654321..', as: :tel %>
     <%= f.input :sex, collection: [['N', 0], ['Male', 1], ['Female', 2]] %>
-    
+
     <%= f.input :password, autocomplete: "off", placeholder: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>
     <%= f.input :current_password, placeholder: "we need your current password to confirm your changes", required: true %>
   </div>
 
   <div class="form-actions text-right">
-    <%= f.button :submit, "Update", class: "btn btn-success" %>    
+    <%= f.button :submit, "Update", class: "btn btn-success" %>
+    <%= link_to  "Cancel", :back,   class: "btn btn-default" %>
   </div>
 <% end %>
 <hr>
@@ -29,5 +30,3 @@
 
   <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 </div>
-
-<%= link_to "Back", :back %>

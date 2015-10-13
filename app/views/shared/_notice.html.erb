@@ -1,6 +1,8 @@
-<% if notice %>
-  <p class="alert alert-success"><%= notice %></p>
-<% end %>
-<% if alert %>
-  <p class="alert alert-danger"><%= alert %></p>
+<% if notice || alert %>
+  <div class="alert <% if notice %>alert-success<% else %>alert-danger<% end %>">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <% if notice %><%= notice %>
+    <% else %><%= alert %>
+    <% end %>
+  </div>
 <% end %>

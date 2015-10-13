@@ -1,36 +1,42 @@
 <ul class="nav nav-stacked">
-    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#userMenu" aria-expanded="false" class="collapsed">Settings <i class="glyphicon glyphicon-chevron-right"></i></a>
-        <ul class="nav nav-stacked collapse" id="userMenu" aria-expanded="false" style="height: 0px;">
-            <li class="active"> <a href="#"><i class="glyphicon glyphicon-home"></i> Home</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-envelope"></i> Messages <span class="badge badge-info">4</span></a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-cog"></i> Options</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-comment"></i> Shoutbox</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-user"></i> Staff List</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-flag"></i> Transactions</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-exclamation-sign"></i> Rules</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-off"></i> Logout</a></li>
+    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#financeMenu" aria-expanded="false" class="collapsed">FINANCE
+      <i class="glyphicon glyphicon-briefcase navbar-right"></i></a>
+        <ul class="nav nav-stacked collapse" id="financeMenu" aria-expanded="false" style="height: 0px;">
+            <li class="active"> <a href="#"><i class="glyphicon glyphicon-usd"></i> Cashbook</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Checkbook</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-piggy-bank"></i> Bankbook</a></li>
         </ul>
     </li>
-    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#menu2" class="collapsed" aria-expanded="false"> Reports <i class="glyphicon glyphicon-chevron-right"></i></a>
-
-        <ul class="nav nav-stacked collapse" id="menu2" aria-expanded="false" style="height: 0px;">
-            <li><a href="#">Information &amp; Stats</a>
-            </li>
-            <li><a href="#">Views</a>
-            </li>
-            <li><a href="#">Requests</a>
-            </li>
-            <li><a href="#">Timetable</a>
-            </li>
-            <li><a href="#">Alerts</a>
-            </li>
+    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#pssMenu" class="collapsed" aria-expanded="false"> P.S.W
+      <i class="glyphicon glyphicon-shopping-cart navbar-right"></i></a>
+        <ul class="nav nav-stacked collapse" id="pssMenu" aria-expanded="false" style="height: 0px;">
+            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Purchase</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Sales</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Stock</a></li>
         </ul>
     </li>
     <li class="nav-header">
-        <a href="#" data-toggle="collapse" data-target="#menu3"> Social Media <i class="glyphicon glyphicon-chevron-right"></i></a>
-        <ul class="nav nav-stacked collapse" id="menu3">
-            <li><a href=""><i class="glyphicon glyphicon-circle"></i> Facebook</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-circle"></i> Twitter</a></li>
+        <a href="#" data-toggle="collapse" data-target="#infoMenu"> INFORMATION <i class="glyphicon glyphicon-info-sign navbar-right"></i></a>
+        <ul class="nav nav-stacked collapse" id="infoMenu" aria-expanded="false" style="height: 0px;">
+            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Client</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Store</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Product</a></li>
+        </ul>
+    </li>
+    <li class="nav-header">
+        <a href="#" data-toggle="collapse" data-target="#repoMenu"> REPORT <i class="glyphicon glyphicon-stats navbar-right"></i></a>
+        <ul class="nav nav-stacked collapse" id="repoMenu" aria-expanded="false" style="height: 0px;">
+            <li><a href=""><i class="glyphicon glyphicon-minus"></i> BlaBlaBla Report</a></li>
+            <li><a href=""><i class="glyphicon glyphicon-minus"></i> ShaShaSha Report</a></li>
+        </ul>
+    </li>
+    <li class="nav-header">
+        <a href="#" data-toggle="collapse" data-target="#settingMenu"> SETTING <i class="glyphicon glyphicon-cog navbar-right"></i></a>
+        <ul class="nav nav-stacked collapse" id="settingMenu" aria-expanded="false" style="height: 0px;">
+            <li><a href="<%= edit_companyinfo_path(1) %>"><i class="glyphicon glyphicon-minus"></i> Company Information</a></li>
+            <li><a href=""><i class="glyphicon glyphicon-minus"></i> User Information</a></li>
+            <li><a href=""><i class="glyphicon glyphicon-minus"></i> User Authority</a></li>
+            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Shared Setting</a></li>
         </ul>
     </li>
 </ul>
