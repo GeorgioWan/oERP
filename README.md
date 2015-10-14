@@ -1,13 +1,11 @@
 # ***oERP***
 
-----------
 *oERP* is a simple ERP with [Ruby on Rails](http://rubyonrails.org/).
 
 
 
 ### **Environment**
 
-----------
 This is my develop environment and the version:
 
  - `Ubuntu 15.04` 
@@ -40,8 +38,6 @@ I also do this setting( *Preferences > Settings > User* ) :
 > **Reference:** [***ihower's blog***](https://ihower.tw/blog/archives/7375)
 
 ### **Installation**
-
-----------
 
 <i class="icon-download"></i> Clone *oERP* repo:
 ```
