@@ -1,5 +1,6 @@
 class CompanyinfoController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_company, only: [:edit, :update]
 
   def new
     @company=Company.new
@@ -16,12 +17,9 @@ class CompanyinfoController < ApplicationController
   end
 
   def edit
-    @company=Company.find(params[:id])
   end
 
   def update
-    @company=Company.find(params[:id])
-
     if @company.update(company_params)
       redirect_to home_path, notice: "Company information is update."
     else
@@ -35,5 +33,9 @@ class CompanyinfoController < ApplicationController
   def company_params
     params.require(:company).permit(:nameFull, :nameShort, :companyCode, :level,
                                     :phone, :fax, :taxId, :email, :address, :remark)
+  end
+
+  def set_company
+    @company=Company.find(params[:id])
   end
 end

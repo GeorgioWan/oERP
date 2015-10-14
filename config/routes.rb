@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
   root 'main#home'
 
-  devise_for :users
-
   get :home, :about, controller: :main
 
-  resources :companyinfo, except: [:index, :show, :destroy]
+  devise_for :users
+  resources  :users, only: [:index, :show, :destroy]
+
+  resources  :companyinfo, except: [:index, :show, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
