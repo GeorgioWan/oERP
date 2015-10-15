@@ -10,17 +10,15 @@
 
 		<%= render 'shared/navbar' %>
 
-		<div class="container" id="oERP-notice">
-			<%= render 'shared/notice' %>
-		</div>
+		<%= render 'shared/notice' %>
 
 		<div class="container-fluid">
 			<div class="row">
 				<% if user_signed_in? %>
-					<div class="col-sm-3 col-md-2 col-lg-2" id="oERP-slidebar"><%= render 'shared/slidebar' %></div>
-					<div class="container col-sm-9 col-md-10 col-lg-10"><%= yield %></div>
+					<div id="oERP-slidebar" class="col-sm-2 col-md-2"><%= render 'shared/slidebar' %></div>
+					<div id="oERP-contain"  class="col-sm-8 col-md-7"><%= yield %></div>
 				<% else %>
-					<div class="col-md-offset-4 col-md-3"><%= yield %></div>
+					<div class="col-md-3 col-md-offset-4"><%= yield %></div>
 				<% end %>
 			</div>
 		</div>
