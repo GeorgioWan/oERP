@@ -4,9 +4,17 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @count = 0
   end
 
   def show
+    if @user.sex == 1
+      @sex = 'Male'
+    elsif @user.sex == 2
+      @sex = 'Female'
+    else
+      @sex = 'N'
+    end
   end
 
   def destroy

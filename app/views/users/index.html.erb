@@ -1,9 +1,38 @@
 <h1>User List</h1>
 <hr>
+<table class="table table-hover "  >
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th><%= @count += 1 %></th>
+        <th><%= link_to user.username, user %></th>
+        <th><%= user.phone %></th>
+        <th class="text-right">
+          <%= link_to user, class: "btn btn-sm btn-default" do %><i class="glyphicon glyphicon-user"></i><% end %>
+          <%= link_to user, class: "btn btn-sm btn-primary" do %><i class="glyphicon glyphicon-edit"></i><% end %>
+          <%= button_tag type: "button", class: "btn btn-sm btn-danger",
+                         data: { toggle: "modal", target: "#oERP-modal", username: user.username ,userid: user.id } do %>
+            <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
-<ol>
-  <% @users.each do |user| %>
-    <li><%= link_to user.username, user %></li>
-  <% end %>
+<%= render 'shared/confirm_modal' %>
 
-</ol>
+<script>
+  $('#oERP-modal').on('show.bs.modal', function(e) {
+    $(this).find('.modal-body').text('Are you sure to delete ' + $(e.relatedTarget).data('username') + ' ?');
+    $(this).find('.btn-ok').attr('href', '/users/' + $(e.relatedTarget).data('userid'));
+  });
+</script>

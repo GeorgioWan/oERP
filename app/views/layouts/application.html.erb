@@ -3,7 +3,9 @@
 	<head>
 	  <title>OERP</title>
 	  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	  <%= stylesheet_link_tag    'bootstrap-table.css' %>
 	  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	  <%= javascript_include_tag 'bootstrap-table.js' %>
 	  <%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -18,7 +20,7 @@
 					<div id="oERP-slidebar" class="col-sm-2 col-md-2"><%= render 'shared/slidebar' %></div>
 					<div id="oERP-contain"  class="col-sm-8 col-md-7"><%= yield %></div>
 				<% else %>
-					<div class="col-md-3 col-md-offset-4"><%= yield %></div>
+					<div class="col-md-2 col-md-offset-5"><%= yield %></div>
 				<% end %>
 			</div>
 		</div>

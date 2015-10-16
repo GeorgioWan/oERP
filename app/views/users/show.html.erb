@@ -5,9 +5,10 @@
   <li><%= @user.username %></li>
   <li><%= @user.email %></li>
   <li><%= @user.phone %></li>
+  <li><%= @sex %></li>
 </ul>
 
 
 <hr>
-<%= link_to 'delete', @user,      class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to 'back',   users_path, class: "btn btn-default" %>
+<%= link_to 'delete',        @user, class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to   'back',   users_path, class: "btn btn-default" %>
