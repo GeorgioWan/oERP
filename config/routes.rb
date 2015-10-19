@@ -3,8 +3,8 @@ Rails.application.routes.draw do
 
   get :home, :about, controller: :main
 
-  devise_for :users
-  resources  :users, only: [:index, :show, :destroy]
+  devise_for :user
+  resources  :users
 
   resources  :companyinfo, except: [:index, :show, :destroy]
 
