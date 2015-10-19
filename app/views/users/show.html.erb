@@ -5,9 +5,29 @@
   <li><%= @user.username %></li>
   <li><%= @user.email %></li>
   <li><%= @user.phone %></li>
+  <li><%= @sex %></li>
 </ul>
 
+<%= render 'shared/confirm_modal' %>
 
 <hr>
-<%= link_to 'delete', @user,      class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
-<%= link_to 'back',   users_path, class: "btn btn-default" %>
+
+<%= link_to edit_user_path(@user.id), class: "btn btn-primary" do %>
+  <i class="glyphicon glyphicon-edit"></i>
+<% end %>
+
+<%= button_tag type: "button", class: "btn btn-danger",
+               data: { toggle: "modal", target: "#oERP-modal", username: @user.username ,userid: @user.id } do %>
+  <i class="glyphicon glyphicon-trash"></i>
+<% end %>
+
+<%= link_to users_path, class: "btn btn-default" do %>
+  <strong>back</strong>
+<% end %>
+
+<script>
+  $('#oERP-modal').on('show.bs.modal', function(e) {
+    $(this).find('.modal-body').text('Are you sure to delete ' + $(e.relatedTarget).data('username') + ' ?');
+    $(this).find('.btn-ok').attr('href', '/users/' + $(e.relatedTarget).data('userid'));
+  });
+</script>

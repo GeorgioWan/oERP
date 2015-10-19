@@ -1,0 +1,23 @@
+<h1>Edit User</h1>
+<hr>
+<div class="row">
+  <div class="col-md-4 col-md-offset-4">
+    <%= simple_form_for @user do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :username, autofocus: true, placeholder: @user.username %>
+        <%= f.input :email, readonly: true %>
+
+
+        <%= f.input :phone, autofocus: true, placeholder: '- ex. 0987654321..', as: :tel %>
+        <%= f.input :sex, collection: [['N', 0], ['Male', 1], ['Female', 2]], include_blank: false %>
+      </div>
+      <hr>
+      <div class="form-actions text-right">
+        <%= f.button :submit, "Update", class: "btn btn-success" %>
+        <%= link_to  "Cancel", :back,   class: "btn btn-default" %>
+      </div>
+    <% end %>
+  </div>
+</div>

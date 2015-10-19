@@ -1,8 +1,11 @@
-<% if notice || alert %>
-  <div class="alert <% if notice %>alert-success<% else %>alert-danger<% end %>">
-    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-    <% if notice %><%= notice %>
-    <% else %><%= alert %>
-    <% end %>
-  </div>
-<% end %>
+<!-- Notice -->
+<div class="container" id="oERP-notice">
+  <% if notice || alert %>
+    <div class="alert <% if notice %>alert-success<% else %>alert-danger<% end %>">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+      <% if notice %><%= notice %>
+      <% else %><%= alert %>
+      <% end %>
+    </div>
+  <% end %>
+</div>
