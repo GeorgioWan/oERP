@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    alertify-rails (0.2.0)
     arel (6.0.3)
     autoprefixer-rails (6.0.2)
       execjs
@@ -200,6 +201,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  alertify-rails
   awesome_rails_console
   bcrypt (~> 3.1.7)
   better_errors

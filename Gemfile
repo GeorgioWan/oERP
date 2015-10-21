@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use bootstrap
 gem 'bootstrap-sass'
 
+# Use alertify-rails
+gem 'alertify-rails'
+
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 
@@ -44,6 +47,7 @@ gem 'simple_form'
 # Use i18n
 gem 'rails-i18n'
 gem 'devise-i18n'
+
 
 
 group :development, :test do

@@ -17,6 +17,9 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
+ @import "alertify.core";
+ @import "alertify.default";
+
  body #oERP-notice {
  	margin-top: 70px;
  }
