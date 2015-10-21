@@ -43,10 +43,3 @@
 </div>
 
 <%= render 'shared/confirm_modal' %>
-
-<script>
-  $('#oERP-modal').on('show.bs.modal', function(e) {
-    $(this).find('.modal-body').text('Are you sure to delete ' + $(e.relatedTarget).data('username') + ' ?');
-    $(this).find('.btn-ok').attr('href', '/users/' + $(e.relatedTarget).data('userid'));
-  });
-</script>
