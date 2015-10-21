@@ -14,12 +14,8 @@
 
 		<div class="container-fluid">
 			<div class="row">
-				<% if user_signed_in? %>
-					<div id="oERP-slidebar" class="col-sm-2 col-md-2"><%= render 'shared/slidebar' %></div>
-					<div id="oERP-contain"  class="col-sm-8 col-md-7"><%= yield %></div>
-				<% else %>
-					<div class="col-md-2 col-md-offset-5"><%= yield %></div>
-				<% end %>
+				<%= signed_slidebar %>
+				<div id="<%= signed_id %>" class="<%= signed_yieldclass %>"><%= yield %></div>
 			</div>
 		</div>
 

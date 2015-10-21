@@ -2,7 +2,9 @@
 <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 	<div class="container">
 		<div class="navbar-header">
-			<%= link_to 'oERP', home_path, :class=>"navbar-brand" %>
+			<%= link_to home_path, class: "navbar-brand", style: "color:rgb(175,30,30)" do %>
+				<strong>oERP</strong>
+			<% end %>
 			<button type="button" class="navbar-toggle" data-toggle="collapse"
 			        data-target="#oERP-nabar-collapse">
 			        <span class="sr-only">switch guide</span>
