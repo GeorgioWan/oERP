@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def new
     @user=User.new
+    @button='Add'
   end
 
   def create
@@ -31,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+    @button='Update'
   end
 
   def update

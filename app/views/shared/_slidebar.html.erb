@@ -1,7 +1,7 @@
 <!-- Slidbar -->
-<ul class="nav nav-stacked">
-    <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#financeMenu" aria-expanded="false" class="collapsed">FINANCE
-      <i class="glyphicon glyphicon-briefcase navbar-right"></i></a>
+<ul class="nav nav-pills nav-stacked">
+    <li class="nav-header" > <a href="#" data-toggle="collapse" data-target="#financeMenu" aria-expanded="false" class="collapsed" >FINANCE
+      <i class="glyphicon glyphicon-briefcase navbar-right"style="border:1px"></i></a>
         <ul class="nav nav-stacked collapse" id="financeMenu" aria-expanded="false" style="height: 0px;">
             <li class="active"> <a href="#"><i class="glyphicon glyphicon-usd"></i> Cashbook</a></li>
             <li><a href="#"><i class="glyphicon glyphicon-pencil"></i> Checkbook</a></li>
@@ -11,33 +11,34 @@
     <li class="nav-header"> <a href="#" data-toggle="collapse" data-target="#pssMenu" class="collapsed" aria-expanded="false"> P.S.W
       <i class="glyphicon glyphicon-shopping-cart navbar-right"></i></a>
         <ul class="nav nav-stacked collapse" id="pssMenu" aria-expanded="false" style="height: 0px;">
-            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Purchase</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Sales</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Stock</a></li>
+            <%= nav_li 'Purchase', "#" %>
+            <%= nav_li 'Sales', "#" %>
+            <%= nav_li 'Stock', "#" %>
+
         </ul>
     </li>
     <li class="nav-header">
         <a href="#" data-toggle="collapse" data-target="#infoMenu"> INFORMATION <i class="glyphicon glyphicon-info-sign navbar-right"></i></a>
         <ul class="nav nav-stacked collapse" id="infoMenu" aria-expanded="false" style="height: 0px;">
-            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Client</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Store</a></li>
-            <li><a href="#"><i class="glyphicon glyphicon-minus"></i> Product</a></li>
+            <%= nav_li 'Client', "#" %>
+            <%= nav_li 'Store', "#" %>
+            <%= nav_li 'Product', "#" %>
         </ul>
     </li>
     <li class="nav-header">
         <a href="#" data-toggle="collapse" data-target="#repoMenu"> REPORT <i class="glyphicon glyphicon-stats navbar-right"></i></a>
         <ul class="nav nav-stacked collapse" id="repoMenu" aria-expanded="false" style="height: 0px;">
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> BlaBlaBla Report</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> ShaShaSha Report</a></li>
+            <%= nav_li 'BlaBlaBla Report', "#" %>
+            <%= nav_li 'ShaShaSha Report', "#" %>
         </ul>
     </li>
     <li class="nav-header">
         <a href="#" data-toggle="collapse" data-target="#settingMenu"> SETTING <i class="glyphicon glyphicon-cog navbar-right"></i></a>
         <ul class="nav nav-stacked collapse" id="settingMenu" aria-expanded="false" style="height: 0px;">
-            <li><a href="<%= edit_companyinfo_path(1) %>"><i class="glyphicon glyphicon-minus"></i> Company Information</a></li>
-            <li><a href="<%= users_path %>"><i class="glyphicon glyphicon-minus"></i> User Information</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> User Authority</a></li>
-            <li><a href=""><i class="glyphicon glyphicon-minus"></i> Shared Setting</a></li>
+            <%= nav_li 'Company Information', edit_companyinfo_path(1) %>
+            <%= nav_li 'User Information', users_path %>
+            <%= nav_li 'User Authority', "#" %>
+            <%= nav_li 'Shared Setting', "#" %>
         </ul>
     </li>
 </ul>
