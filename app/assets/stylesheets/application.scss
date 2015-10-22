@@ -17,10 +17,7 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
- @import "alertify.core";
- @import "alertify.default";
-
- body #oERP-notice {
+ body .container-fluid {
  	margin-top: 70px;
  }
 

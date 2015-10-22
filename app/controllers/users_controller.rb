@@ -44,8 +44,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    @temp=@user.username
     @user.destroy
-    redirect_to users_path
+    redirect_to users_path, alert: "[DELETE] "+@temp+" is delete."
   end
 
   private
