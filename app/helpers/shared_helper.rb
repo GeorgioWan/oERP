@@ -29,4 +29,5 @@ module SharedHelper
   def user_name user
     return user.new_record? ? '- Name' : user.username
   end
+
 end

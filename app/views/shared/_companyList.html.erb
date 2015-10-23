@@ -1,0 +1,64 @@
+<!-- index list -->
+<table class="table table-hover" >
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>公司名稱</th>
+        <th>聯絡電話</th>
+        <th>統一編號</th>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @companies.each do |company| %>
+      <tr>
+        <th><%= @count += 1 %></th>
+        <% if request.path == '/clients' %>
+          <th><%= link_to company.nameFull, client_path(company) %></th>
+        <% elsif request.path == '/suppliers' %>
+          <th><%= link_to company.nameFull, supplier_path(company) %></th>
+        <% end %>
+        <th><%= company.phone %></th>
+        <th><%= company.taxId %></th>
+        <th class="text-right">
+          <!-- sucks code here -->
+          <% if request.path == '/clients' %>
+            <%= link_to edit_client_path(company.id), class: "btn btn-sm btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          <% elsif request.path == '/suppliers' %>
+            <%= link_to edit_supplier_path(company.id), class: "btn btn-sm btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          <% end %>
+
+          <%= button_tag type: "button", class: "btn btn-sm btn-danger",
+                         data: { toggle: "modal",  target: "#oERP-modal",
+                                 path: request.path, name: company.nameFull ,id: company.id } do %>
+            <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+<!-- Create User Button -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-4">
+      <!-- sucks code here -->
+      <% if request.path == '/clients' %>
+        <%= link_to new_client_path, class: 'btn btn-success' do %>
+          <i class="glyphicon glyphicon-plus"></i>
+        <% end %>
+      <% elsif request.path == '/suppliers' %>
+        <%= link_to new_supplier_path, class: 'btn btn-success' do %>
+          <i class="glyphicon glyphicon-plus"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/confirm_modal' %>

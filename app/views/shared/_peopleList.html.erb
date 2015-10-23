@@ -1,0 +1,59 @@
+<!-- index list -->
+<table class="table table-hover" >
+  <thead>
+      <tr>
+        <th>#</th>
+        <th>姓名</th>
+        <th>聯絡電話</th>
+        <th></th>
+      </tr>
+  </thead>
+  <tbody>
+    <% @people.each do |person| %>
+      <tr <% if person == current_user %>class="info"<% end %>>
+        <th><%= @count += 1 %></th>
+        <th><%= link_to person.username, person %></th>
+        <th><%= person.phone %></th>
+        <th class="text-right">
+          <%= link_to person, class: "btn btn-sm btn-default" do %><i class="glyphicon glyphicon-user"></i><% end %>
+          <!-- sucks code here -->
+          <% if request.path == '/users' %>
+            <%= link_to edit_user_path(person.id), class: "btn btn-sm btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          <% elsif request.path == '/people' %>
+            <%= link_to edit_person_path(person.id), class: "btn btn-sm btn-primary" do %>
+              <i class="glyphicon glyphicon-edit"></i>
+            <% end %>
+          <% end %>
+
+          <%= button_tag type: "button", class: "btn btn-sm btn-danger",
+                         data: { toggle: "modal",  target: "#oERP-modal",
+                                 path: request.path, name: person.username , id: person.id } do %>
+            <i class="glyphicon glyphicon-trash"></i>
+          <% end %>
+        </th>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<hr>
+<!-- Create User Button -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-4">
+      <!-- sucks code here -->
+      <% if request.path == '/users' %>
+        <%= link_to new_user_path, class: 'btn btn-success' do %>
+          <i class="glyphicon glyphicon-plus"></i>
+        <% end %>
+      <% elsif request.path == '/people' %>
+        <%= link_to new_person_path, class: 'btn btn-success' do %>
+          <i class="glyphicon glyphicon-plus"></i>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/confirm_modal' %>

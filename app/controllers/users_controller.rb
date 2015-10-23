@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: [:index, :new, :create]
 
   def index
-    @users = User.all
+    @people = User.all
     @count = 0
   end
 
@@ -19,25 +19,25 @@ class UsersController < ApplicationController
 
   def new
     @user=User.new
-    @button='Add'
+    @button='新增'
   end
 
   def create
     @user=User.new user_params
     if @user.save
-      redirect_to users_path, notice: "[NEW] "+@user.username+" is added."
+      redirect_to users_path, notice: "[新增] "+@user.username+" is added."
     else
       render :new
     end
   end
 
   def edit
-    @button='Update'
+    @button='更新'
   end
 
   def update
     if @user.update(user_params)
-      redirect_to users_path, notice: "[EDIT] "+@user.username+" is update."
+      redirect_to users_path, notice: "[更新] "+@user.username+" is update."
     else
       render :edit
     end
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   def destroy
     @temp=@user.username
     @user.destroy
-    redirect_to users_path, alert: "[DELETE] "+@temp+" is delete."
+    redirect_to users_path, alert: "[刪除] "+@temp+" is delete."
   end
 
   private

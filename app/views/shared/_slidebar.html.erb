@@ -20,9 +20,9 @@
     <li class="nav-header">
         <a href="#" data-toggle="collapse" data-target="#infoMenu"> INFORMATION <i class="glyphicon glyphicon-info-sign navbar-right"></i></a>
         <ul class="nav nav-stacked collapse" id="infoMenu" aria-expanded="false" style="height: 0px;">
-            <%= nav_li 'Client', "#" %>
-            <%= nav_li 'Store', "#" %>
-            <%= nav_li 'Product', "#" %>
+            <%= nav_li   'Client', clients_path %>
+            <%= nav_li 'Supplier', suppliers_path %>
+            <%= nav_li  'Product', "#" %>
         </ul>
     </li>
     <li class="nav-header">
@@ -36,9 +36,9 @@
         <a href="#" data-toggle="collapse" data-target="#settingMenu"> SETTING <i class="glyphicon glyphicon-cog navbar-right"></i></a>
         <ul class="nav nav-stacked collapse" id="settingMenu" aria-expanded="false" style="height: 0px;">
             <%= nav_li 'Company Information', edit_companyinfo_path(1) %>
-            <%= nav_li 'User Information', users_path %>
-            <%= nav_li 'User Authority', "#" %>
-            <%= nav_li 'Shared Setting', "#" %>
+            <%= nav_li    'User Information', users_path %>
+            <%= nav_li      'User Authority', "#" %>
+            <%= nav_li      'Shared Setting', "#" %>
         </ul>
     </li>
 </ul>

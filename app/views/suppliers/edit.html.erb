@@ -1,0 +1,57 @@
+<h1>Edit Supplier</h1>
+<hr>
+
+<%= simple_form_for @company, url: supplier_path(@company) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+        <%= f.input :companyCode, autofocus: true, placeholder: @company.companyCode %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+        <%= f.input :nameShort, autofocus: true, placeholder: @company.nameShort %>
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <%= f.input :nameFull,  autofocus: true, placeholder: @company.nameFull %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+        <%= f.input :phone, autofocus: true, placeholder: '- ex. 0987654321..', as: :tel %>
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <%= f.input :fax,   autofocus: true, placeholder: '- ex. 023456789...', as: :tel %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+        <%= f.input :email, autofocus: true, placeholder: @company.email %>
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <%= f.input :address, autofocus: true, placeholder: @company.address %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+        <%= f.input :contact, collection: Person.all.map{ |p| [p.nameFull, p.id] }, include_blank: false %>
+      </div>
+      <div class="col-sm-3 col-md-3 col-lg-3">
+        <%= f.input :representative, collection: Person.all.map{ |p| [p.nameFull, p.id] }, include_blank: false %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6 col-md-offset-3">
+        <%= f.input :remark,  autofocus: true, placeholder: @company.remark %>
+      </div>
+    </div>
+
+  </div>
+  <hr>
+  <div class="form-actions text-right">
+    <%= f.button :submit, "Update", class: "btn btn-success" %>
+    <%= link_to  "Cancel", :back,   class: "btn btn-default" %>
+  </div>
+<% end %>

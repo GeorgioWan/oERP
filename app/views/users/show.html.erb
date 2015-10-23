@@ -24,10 +24,3 @@
 <%= link_to users_path, class: "btn btn-default" do %>
   <strong>back</strong>
 <% end %>
-
-<script>
-  $('#oERP-modal').on('show.bs.modal', function(e) {
-    $(this).find('.modal-body').text('Are you sure to delete ' + $(e.relatedTarget).data('username') + ' ?');
-    $(this).find('.btn-ok').attr('href', '/users/' + $(e.relatedTarget).data('userid'));
-  });
-</script>

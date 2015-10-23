@@ -4,7 +4,7 @@
 
 $ ->
   $('#oERP-modal').on 'show.bs.modal', (e) ->
-    $(this).find('.modal-body').text 'Are you sure to delete ' + $(e.relatedTarget).data('username') + ' ?'
-    $(this).find('.btn-ok').attr 'href', '/users/' + $(e.relatedTarget).data('userid')
+    $(this).find('.modal-body').text 'Are you sure to delete ' + $(e.relatedTarget).data('name') + ' ?'
+    $(this).find('.btn-ok').attr 'href', $(e.relatedTarget).data('path') + '/' + $(e.relatedTarget).data('id')
 
 
