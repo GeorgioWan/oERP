@@ -1,9 +1,10 @@
 class ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_clients, except: [:index, :new, :create]
+  helper_method :edit_path, :show_path, :new_path
 
   def index
-    @companies = Company.all
+    @companies = Company.where(companyType: 'client')
     @count = 0
   end
 
@@ -11,8 +12,19 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @company=Company.new
-    @button='新增'
+    @company          = Company.new
+    @companyCode      = ' - Your company code'
+    @companyType      = 'client'
+    @taxId            = ' - Company tax id'
+    @nameFull         = ' - Full name'
+    @nameShort        = ' - Short name'
+    @email            = ' - e.g. abc@gmail.com..'
+    @phone            = ' - e.g. 0987654321..'
+    @fax              = ' - e.g. 0234567..'
+    @address          = ' - Company\'s address'
+    @remark           = ' - Something about the company'
+    @button           = '新增'
+    @new_or_edit_path = clients_path
   end
 
   def create
@@ -25,7 +37,18 @@ class ClientsController < ApplicationController
   end
 
   def edit
-    @button='更新'
+    @companyCode = @company.companyCode
+    @companyType = 'client'
+    @taxId       = @company.taxId
+    @nameFull    = @company.nameFull
+    @nameShort   = @company.nameShort
+    @email       = @company.email
+    @phone       = @company.phone
+    @fax         = @company.fax
+    @address     = @company.address
+    @remark      = @company.remark
+    @button      = '更新'
+    @new_or_edit_path = client_path(params[:id])
   end
 
   def update
@@ -45,12 +68,24 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:nameFull, :nameShort, :companyCode, :level,
-                                   :phone, :fax, :taxId, :email, :address, :remark)
+    params.require(:company).permit(:nameFull, :nameShort, :companyCode, :level, :companyType,
+                                    :phone, :fax, :taxId, :email, :address, :remark)
   end
 
   def set_clients
     @company = Company.find(params[:id])
+  end
+
+  def edit_path id
+    edit_client_path(id)
+  end
+
+  def show_path id
+    client_path(id)
+  end
+
+  def new_path
+    new_client_path
   end
 
 end

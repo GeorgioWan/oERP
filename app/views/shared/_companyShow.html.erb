@@ -1,0 +1,29 @@
+<ul>
+  <li><%= @company.companyCode %></li>
+  <li><%= @company.nameFull %></li>
+  <li><%= @company.nameShort %></li>
+  <li><%= @company.taxId %></li>
+  <li><%= @company.phone %></li>
+  <li><%= @company.fax %></li>
+  <li><%= @company.email %></li>
+  <li><%= @company.address %></li>
+  <li><%= @company.remark %></li>
+</ul>
+
+<%= render 'shared/confirm_modal' %>
+
+<hr>
+
+<%= link_to edit_path(@company.id), class: "btn btn-primary" do %>
+  <i class="glyphicon glyphicon-edit"></i>
+<% end %>
+
+<%= button_tag type: "button", class: "btn btn-danger",
+               data: { toggle: "modal", target: "#oERP-modal",
+                      path: request.path, name: @company.nameFull ,id: @company.id } do %>
+  <i class="glyphicon glyphicon-trash"></i>
+<% end %>
+
+<%= link_to :back, class: "btn btn-default" do %>
+  <strong>back</strong>
+<% end %>

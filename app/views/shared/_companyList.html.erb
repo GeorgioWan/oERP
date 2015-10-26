@@ -3,7 +3,8 @@
   <thead>
       <tr>
         <th>#</th>
-        <th>公司名稱</th>
+        <th>公司全名</th>
+        <th>公司簡稱</th>
         <th>聯絡電話</th>
         <th>統一編號</th>
         <th></th>
@@ -13,25 +14,17 @@
     <% @companies.each do |company| %>
       <tr>
         <th><%= @count += 1 %></th>
-        <% if request.path == '/clients' %>
-          <th><%= link_to company.nameFull, client_path(company) %></th>
-        <% elsif request.path == '/suppliers' %>
-          <th><%= link_to company.nameFull, supplier_path(company) %></th>
-        <% end %>
+        <th><%= link_to company.nameFull, show_path(company) %></th>
+        <th><%= company.nameShort %></th>
         <th><%= company.phone %></th>
         <th><%= company.taxId %></th>
         <th class="text-right">
-          <!-- sucks code here -->
-          <% if request.path == '/clients' %>
-            <%= link_to edit_client_path(company.id), class: "btn btn-sm btn-primary" do %>
-              <i class="glyphicon glyphicon-edit"></i>
-            <% end %>
-          <% elsif request.path == '/suppliers' %>
-            <%= link_to edit_supplier_path(company.id), class: "btn btn-sm btn-primary" do %>
-              <i class="glyphicon glyphicon-edit"></i>
-            <% end %>
+          <%= link_to show_path(company), class: "btn btn-sm btn-default" do %>
+            <i class="glyphicon glyphicon-list-alt"></i>
           <% end %>
-
+          <%= link_to edit_path(company.id), class: "btn btn-sm btn-primary" do %>
+            <i class="glyphicon glyphicon-edit"></i>
+          <% end %>
           <%= button_tag type: "button", class: "btn btn-sm btn-danger",
                          data: { toggle: "modal",  target: "#oERP-modal",
                                  path: request.path, name: company.nameFull ,id: company.id } do %>
@@ -47,15 +40,8 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-offset-4">
-      <!-- sucks code here -->
-      <% if request.path == '/clients' %>
-        <%= link_to new_client_path, class: 'btn btn-success' do %>
-          <i class="glyphicon glyphicon-plus"></i>
-        <% end %>
-      <% elsif request.path == '/suppliers' %>
-        <%= link_to new_supplier_path, class: 'btn btn-success' do %>
-          <i class="glyphicon glyphicon-plus"></i>
-        <% end %>
+      <%= link_to new_path, class: 'btn btn-success' do %>
+        <i class="glyphicon glyphicon-plus"></i>
       <% end %>
     </div>
   </div>

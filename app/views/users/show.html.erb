@@ -17,7 +17,8 @@
 <% end %>
 
 <%= button_tag type: "button", class: "btn btn-danger",
-               data: { toggle: "modal", target: "#oERP-modal", username: @user.username ,userid: @user.id } do %>
+               data: { toggle:    "modal", target:  "#oERP-modal",
+                       path: request.path, name: @user.username , id: @user.id } do %>
   <i class="glyphicon glyphicon-trash"></i>
 <% end %>
 

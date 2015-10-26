@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151002094846) do
+ActiveRecord::Schema.define(version: 20151026080416) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "companyCode", default: "", null: false
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 20151002094846) do
     t.text     "remark",      default: "", null: false
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.string   "companyType", default: "", null: false
   end
 
   add_index "companies", ["companyCode"], name: "index_companies_on_companyCode", unique: true
