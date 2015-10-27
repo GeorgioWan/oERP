@@ -6,6 +6,6 @@ class Person < ActiveRecord::Base
   has_many :representative_companies, :through => :representative_roles, :source => :company
 
 	validates_presence_of :nameShort
-	validates_format_of :email,
-		:with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
+	validates_format_of   :email,
+		                    :with => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
 end

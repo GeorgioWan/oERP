@@ -1,7 +1,8 @@
 class SuppliersController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_suppliers, except: [:index, :new, :create]
-  helper_method :edit_path, :show_path, :new_path
+  before_action :set_suppliers, except: [:index,  :new, :create]
+  before_action :set_variable,  only:   [:new, :create,   :edit, :update]
+  helper_method :index_path, :edit_path, :show_path, :new_path
 
   def index
     @companies = Company.where(companyType: 'supplier')
@@ -12,23 +13,11 @@ class SuppliersController < ApplicationController
   end
 
   def new
-    @company          = Company.new
-    @companyCode      = ' - Your company code'
-    @companyType      = 'supplier'
-    @taxId            = ' - Company tax id'
-    @nameFull         = ' - Full name'
-    @nameShort        = ' - Short name'
-    @email            = ' - e.g. abc@gmail.com..'
-    @phone            = ' - e.g. 0987654321..'
-    @fax              = ' - e.g. 0234567..'
-    @address          = ' - Company\'s address'
-    @remark           = ' - Something about the company'
-    @button           = '新增'
-    @new_or_edit_path = suppliers_path
+    @company = Company.new
   end
 
   def create
-    @company     = Company.new supplier_params
+    @company = Company.new supplier_params
     if @company.save
       redirect_to suppliers_path, notice: "[新增] "+@company.nameFull+" is added."
     else
@@ -37,18 +26,6 @@ class SuppliersController < ApplicationController
   end
 
   def edit
-    @companyCode = @company.companyCode
-    @companyType = 'supplier'
-    @taxId       = @company.taxId
-    @nameFull    = @company.nameFull
-    @nameShort   = @company.nameShort
-    @email       = @company.email
-    @phone       = @company.phone
-    @fax         = @company.fax
-    @address     = @company.address
-    @remark      = @company.remark
-    @button      = '更新'
-    @new_or_edit_path = supplier_path(params[:id])
   end
 
   def update
@@ -76,6 +53,10 @@ class SuppliersController < ApplicationController
     @company = Company.find(params[:id])
   end
 
+  def index_path
+    suppliers_path
+  end
+
   def edit_path id
     edit_supplier_path(id)
   end
@@ -86,5 +67,35 @@ class SuppliersController < ApplicationController
 
   def new_path
     new_supplier_path
+  end
+
+  def set_variable
+    if @company.nil?
+      @companyCode      = ' - Your company code'
+      @companyType      = 'supplier'
+      @taxId            = ' - Company tax id'
+      @nameFull         = ' - Full name'
+      @nameShort        = ' - Short name'
+      @email            = ' - e.g. abc@gmail.com..'
+      @phone            = ' - e.g. 0987654321..'
+      @fax              = ' - e.g. 0234567..'
+      @address          = ' - Company\'s address'
+      @remark           = ' - Something about the company'
+      @button           = '新增'
+      @new_or_edit_path = suppliers_path
+    else
+      @companyCode      = @company.companyCode
+      @companyType      = 'supplier'
+      @taxId            = @company.taxId
+      @nameFull         = @company.nameFull
+      @nameShort        = @company.nameShort
+      @email            = @company.email
+      @phone            = @company.phone
+      @fax              = @company.fax
+      @address          = @company.address
+      @remark           = @company.remark
+      @button           = '更新'
+      @new_or_edit_path = supplier_path(params[:id])
+    end
   end
 end
