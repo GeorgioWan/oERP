@@ -37,14 +37,8 @@
 </table>
 <hr>
 <!-- Create User Button -->
-<div class="container">
-  <div class="row">
-    <div class="col-sm-offset-4">
-      <%= link_to new_path, class: 'btn btn-success' do %>
-        <i class="glyphicon glyphicon-plus"></i>
-      <% end %>
-    </div>
-  </div>
+<div class="text-center">
+  <%= link_to new_path, class: 'btn btn-success' do %><i class="glyphicon glyphicon-plus"></i><% end %>
 </div>
 
 <%= render 'shared/confirm_modal' %>
