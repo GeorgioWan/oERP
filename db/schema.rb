@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151026080416) do
+ActiveRecord::Schema.define(version: 20151027051130) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "companyCode", default: "", null: false
@@ -55,6 +55,26 @@ ActiveRecord::Schema.define(version: 20151026080416) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
   end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "code",          default: "",  null: false
+    t.string   "name",          default: "",  null: false
+    t.string   "unit",          default: "",  null: false
+    t.decimal  "price",         default: 0.0, null: false
+    t.decimal  "bargain_price", default: 0.0, null: false
+    t.date     "end_date"
+    t.integer  "buffer_stock",  default: 0,   null: false
+    t.integer  "stock",         default: 0,   null: false
+    t.decimal  "cost",          default: 0.0, null: false
+    t.text     "description",   default: "",  null: false
+    t.text     "remark",        default: "",  null: false
+    t.string   "image"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "products", ["code"], name: "index_products_on_code", unique: true
+  add_index "products", ["name"], name: "index_products_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
     t.string   "username",               default: "", null: false
