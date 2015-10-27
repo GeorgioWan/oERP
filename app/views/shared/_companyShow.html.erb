@@ -20,7 +20,7 @@
 
 <%= button_tag type: "button", class: "btn btn-danger",
                data: { toggle: "modal", target: "#oERP-modal",
-                      path: request.path, name: @company.nameFull ,id: @company.id } do %>
+                       path: request.path, name: @company.nameFull ,id: '0' } do %>
   <i class="glyphicon glyphicon-trash"></i>
 <% end %>
 

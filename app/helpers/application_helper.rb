@@ -1,7 +1,7 @@
 module ApplicationHelper
   def signed_slidebar
     if user_signed_in?
-      content_tag :div, (render 'shared/slidebar'), class: 'col-sm-2 col-md-2', id: 'oERP-slidebar'
+      content_tag :div, (render 'shared/slidebar'), id: 'oERP-slidebar', class: 'col-sm-2 col-md-2'
     end
   end
 
