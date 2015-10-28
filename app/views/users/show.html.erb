@@ -12,10 +12,6 @@
 
 <hr>
 
-<%= link_to edit_user_path(@user.id), class: "btn btn-primary" do %>
-  <i class="glyphicon glyphicon-edit"></i>
-<% end %>
-
 <%= button_tag type: "button", class: "btn btn-danger",
                data: { toggle:    "modal", target:  "#oERP-modal",
                        path: request.path, name: @user.username , id: '0' } do %>

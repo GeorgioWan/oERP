@@ -14,16 +14,12 @@
 
 <hr>
 
-<%= link_to edit_path(@company.id), class: "btn btn-primary" do %>
-  <i class="glyphicon glyphicon-edit"></i>
-<% end %>
-
 <%= button_tag type: "button", class: "btn btn-danger",
                data: { toggle: "modal", target: "#oERP-modal",
                        path: request.path, name: @company.nameFull ,id: '0' } do %>
   <i class="glyphicon glyphicon-trash"></i>
 <% end %>
 
-<%= link_to index_path, class: "btn btn-default" do %>
+<%= link_to :back, class: "btn btn-default" do %>
   <strong>back</strong>
 <% end %>

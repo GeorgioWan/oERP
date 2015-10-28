@@ -2,7 +2,7 @@ class SuppliersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_suppliers, except: [:index,  :new, :create]
   before_action :set_variable,  only:   [:new, :create,   :edit, :update]
-  helper_method :index_path, :edit_path, :show_path, :new_path
+  helper_method :edit_path, :show_path, :new_path
 
   def index
     @companies = Company.where(companyType: 'supplier')
@@ -51,10 +51,6 @@ class SuppliersController < ApplicationController
 
   def set_suppliers
     @company = Company.find(params[:id])
-  end
-
-  def index_path
-    suppliers_path
   end
 
   def edit_path id

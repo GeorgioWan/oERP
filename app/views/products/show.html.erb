@@ -18,10 +18,6 @@
 
 <hr>
 
-<%= link_to edit_product_path(@product.id), class: "btn btn-primary" do %>
-  <i class="glyphicon glyphicon-edit"></i>
-<% end %>
-
 <%= button_tag type: "button", class: "btn btn-danger",
                data: { toggle:    "modal", target:  "#oERP-modal",
                        path: request.path, name: @product.name , id: '0' } do %>
