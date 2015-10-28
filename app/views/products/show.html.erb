@@ -2,26 +2,32 @@
 <hr>
 
 <ul>
-  <li><%= @user.username %></li>
-  <li><%= @user.email %></li>
-  <li><%= @user.phone %></li>
-  <li><%= @sex %></li>
+  <li><%= @product.code %></li>
+  <li><%= @product.name %></li>
+  <li><%= @product.unit %></li>
+  <li><%= @product.price %></li>
+  <li><%= @product.bargain_price %></li>
+  <li><%= @product.buffer_stock %></li>
+  <li><%= @product.end_date %></li>
+  <li><%= @product.description %></li>
+  <li><%= @product.remark %></li>
+
 </ul>
 
 <%= render 'shared/confirm_modal' %>
 
 <hr>
 
-<%= link_to edit_user_path(@user.id), class: "btn btn-primary" do %>
+<%= link_to edit_product_path(@product.id), class: "btn btn-primary" do %>
   <i class="glyphicon glyphicon-edit"></i>
 <% end %>
 
 <%= button_tag type: "button", class: "btn btn-danger",
                data: { toggle:    "modal", target:  "#oERP-modal",
-                       path: request.path, name: @user.username , id: '0' } do %>
+                       path: request.path, name: @product.name , id: '0' } do %>
   <i class="glyphicon glyphicon-trash"></i>
 <% end %>
 
-<%= link_to users_path, class: "btn btn-default" do %>
+<%= link_to products_path, class: "btn btn-default" do %>
   <strong>back</strong>
 <% end %>

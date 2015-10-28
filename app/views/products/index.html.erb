@@ -17,7 +17,7 @@
     <% @products.each do |product| %>
       <tr>
         <th><%= @count += 1 %></th>
-        <th><%= link_to product.code %></th>
+        <th><%= link_to product.code, product %></th>
         <th><%= link_to product.name, product %></th>
         <th><%= product.unit %></th>
         <th>tag tag</th>

@@ -1,6 +1,7 @@
 class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, except: [:index, :new, :create]
+  before_action :set_variable,  only:   [:new, :create,   :edit, :update]
 
   def index
     @products = Product.all
@@ -12,7 +13,6 @@ class ProductsController < ApplicationController
 
   def new
     @product=Product.new
-    @button='新增'
   end
 
   def create
@@ -25,7 +25,6 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @button='更新'
   end
 
   def update
@@ -53,4 +52,33 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
 
+  def set_variable
+    if @product.nil?
+      @code             = ' - Product\'s code'
+      @name             = ' - Product\'s name'
+      @unit             = ' - e.g. 個、組、件...'
+      @image            = ' - upload image'
+      @price            = ' - Normal price'
+      @bargainPrice     = ' - On sale price'
+      @bufferStock      = ' - 安全存量'
+      @endDate          = ' - sale out date'
+      @description      = ' - Something about the product'
+      @remark           = ' - Note for product'
+      @button           = '新增'
+      @companies = Company.where(companyType: 'supplier')
+    else
+      @code             = @product.code
+      @name             = @product.name
+      @unit             = @product.unit
+      @image            = @product.image
+      @price            = @product.price
+      @bargainPrice     = @product.bargain_price
+      @bufferStock      = @product.buffer_stock
+      @endDate          = @product.end_date
+      @description      = @product.description
+      @remark           = @product.remark
+      @button           = '更新'
+      @companies = Company.where(companyType: 'supplier')
+    end
+  end
 end

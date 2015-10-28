@@ -5,7 +5,7 @@ class Company < ActiveRecord::Base
   has_one  :representative_role, ->{ where(:role => "Representative") }, :class_name => "CompanyRole"
   has_one  :representative, :through => :representative_role, :source => :person
 
-  has_many :products
+  has_many :products, dependent: :destroy
 
 	validates_uniqueness_of   :companyCode, :nameFull,  :nameShort
 	validates_presence_of     :companyCode, :nameShort, :nameFull
