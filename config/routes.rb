@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get :home, :about, controller: :main
 
   devise_for :user
-  resources  :users, :clients, :suppliers
+  resources  :users, :clients, :suppliers, :products
 
   resources  :companyinfo, except: [:index, :show, :destroy]
 

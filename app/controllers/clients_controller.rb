@@ -2,7 +2,7 @@ class ClientsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_clients, except: [:index,  :new, :create]
   before_action :set_variable,  only: [:new, :create,   :edit, :update]
-  helper_method :index_path, :edit_path, :show_path, :new_path
+  helper_method :edit_path, :show_path, :new_path
 
   def index
     @companies = Company.where(companyType: 'client')
@@ -51,10 +51,6 @@ class ClientsController < ApplicationController
 
   def set_clients
     @company = Company.find(params[:id])
-  end
-
-  def index_path
-    clients_path
   end
 
   def edit_path id

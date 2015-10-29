@@ -1,0 +1,29 @@
+<h1>Product Information</h1>
+<hr>
+
+<ul>
+  <li><%= @product.code %></li>
+  <li><%= @product.name %></li>
+  <li><%= @product.unit %></li>
+  <li><%= @product.price %></li>
+  <li><%= @product.bargain_price %></li>
+  <li><%= @product.buffer_stock %></li>
+  <li><%= @product.end_date %></li>
+  <li><%= @product.description %></li>
+  <li><%= @product.remark %></li>
+
+</ul>
+
+<%= render 'shared/confirm_modal' %>
+
+<hr>
+
+<%= button_tag type: "button", class: "btn btn-danger",
+               data: { toggle:    "modal", target:  "#oERP-modal",
+                       path: request.path, name: @product.name , id: '0' } do %>
+  <i class="glyphicon glyphicon-trash"></i>
+<% end %>
+
+<%= link_to products_path, class: "btn btn-default" do %>
+  <strong>back</strong>
+<% end %>
