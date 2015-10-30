@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_user, except: [:index, :new, :create]
+  before_action :set_variable, only: [:new, :create, :edit, :update]
 
   def index
-    @people = User.all
+    @users = User.all
     @count = 0
   end
 
@@ -57,6 +58,20 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def set_variable
+    if @user.nil?
+      @username  = ' - Full Name'
+      @email     = ' - e.g. abc@gmail.com..'
+      @phone     = ' - e.g. 0987654321..'
+      @button    = '新增'
+    else
+      @username  = @user.username
+      @email     = @user.email
+      @phone     = @user.phone
+      @button    = '更新'
+    end
   end
 
 end

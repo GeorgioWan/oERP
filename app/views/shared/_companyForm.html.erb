@@ -4,43 +4,43 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+      <div class="col-sm-3 col-md-offset-3">
         <%= f.input :companyCode, autofocus: true, placeholder: @companyCode %>
         <%= f.input :companyType, as: 'hidden', input_html: {value: @companyType} %>
       </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-sm-3">
         <%= f.input :taxId, autofocus: true, placeholder: @taxId %>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+      <div class="col-sm-3 col-md-offset-3">
         <%= f.input :nameShort, autofocus: true, placeholder: @nameShort %>
       </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-sm-3 ">
         <%= f.input :nameFull,  autofocus: true, placeholder: @nameFull %>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+      <div class="col-sm-3 col-md-offset-3">
         <%= f.input :phone, autofocus: true, placeholder: '- ex. 0987654321..', as: :tel %>
       </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-sm-3 ">
         <%= f.input :fax,   autofocus: true, placeholder: '- ex. 023456789...', as: :tel %>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+      <div class="col-sm-3  col-md-offset-3">
         <%= f.input :email, autofocus: true, placeholder: @email %>
       </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-sm-3 ">
         <%= f.input :address, autofocus: true, placeholder: @address %>
       </div>
     </div>
     <div class="row">
-      <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
+      <div class="col-sm-3  col-md-offset-3">
         <%= f.input :contact_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] } %>
       </div>
-      <div class="col-sm-3 col-md-3 col-lg-3">
+      <div class="col-sm-3 ">
         <%= f.input :representative_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] } %>
       </div>
     </div>

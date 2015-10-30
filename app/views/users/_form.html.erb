@@ -5,9 +5,9 @@
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :username, autofocus: true, placeholder: user_name(@user) %>
-        <%= f.input    :email,  required: true, autofocus: true, placeholder: '- ex: abc@gmail.com...' %>
-        <%= f.input    :phone, autofocus: true, placeholder: '- ex. 0987654321..', as: :tel %>
+        <%= f.input :username, autofocus: true, placeholder: @username %>
+        <%= f.input    :email,  required: true, autofocus: true, placeholder: @email %>
+        <%= f.input    :phone, autofocus: true, placeholder: @phone, as: :tel %>
         <%= f.input      :sex, collection: [['N', 0], ['Male', 1], ['Female', 2]], include_blank: false %>
 
         <% if @user.new_record? %>

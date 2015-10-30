@@ -26,8 +26,4 @@ module SharedHelper
     content_tag :li, link_to(text, path), class: active
   end
 
-  def user_name user
-    return user.new_record? ? '- Name' : user.username
-  end
-
 end

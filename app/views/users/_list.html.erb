@@ -9,19 +9,19 @@
       </tr>
   </thead>
   <tbody>
-    <% @people.each do |person| %>
-      <tr <% if person == current_user %>class="info"<% end %>>
+    <% @users.each do |user| %>
+      <tr <% if user == current_user %>class="info"<% end %>>
         <th><%= @count += 1 %></th>
-        <th><%= link_to person.username, person %></th>
-        <th><%= person.phone %></th>
+        <th><%= link_to user.username, user %></th>
+        <th><%= user.phone %></th>
         <th class="text-right">
-          <%= link_to person, class: "btn btn-sm btn-default" do %><i class="glyphicon glyphicon-user"></i><% end %>
-          <%= link_to edit_user_path(person.id), class: "btn btn-sm btn-primary" do %>
+          <%= link_to user, class: "btn btn-sm btn-default" do %><i class="glyphicon glyphicon-user"></i><% end %>
+          <%= link_to edit_user_path(user.id), class: "btn btn-sm btn-primary" do %>
             <i class="glyphicon glyphicon-edit"></i>
           <% end %>
           <%= button_tag type: "button", class: "btn btn-sm btn-danger",
                          data: { toggle: "modal",  target: "#oERP-modal",
-                                 path: request.path, name: person.username , id: person.id } do %>
+                                 path: request.path, name: user.username , id: user.id } do %>
             <i class="glyphicon glyphicon-trash"></i>
           <% end %>
         </th>
