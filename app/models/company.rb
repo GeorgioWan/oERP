@@ -1,9 +1,9 @@
 class Company < ActiveRecord::Base
-  has_one  :contact_role, ->{ where(:role => "Contact") }, :class_name => "CompanyRole"
-  has_one  :contact, :through => :contact_role, :source => :person
+  has_many  :contact_role, ->{ where(:role => "Contact") }, :class_name => "CompanyRole"
+  has_many  :contact, :through => :contact_role, :source => :person
 
-  has_one  :representative_role, ->{ where(:role => "Representative") }, :class_name => "CompanyRole"
-  has_one  :representative, :through => :representative_role, :source => :person
+  has_many  :representative_role, ->{ where(:role => "Representative") }, :class_name => "CompanyRole"
+  has_many  :representative, :through => :representative_role, :source => :person
 
   has_many :products, dependent: :destroy
 

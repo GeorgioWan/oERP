@@ -46,7 +46,8 @@ class SuppliersController < ApplicationController
 
   def supplier_params
     params.require(:company).permit(:nameFull, :nameShort, :companyCode, :level, :companyType,
-                                    :phone, :fax, :taxId, :email, :address, :remark)
+                                    :phone, :fax, :taxId, :email, :address, :remark,
+                                    :contact_ids, :representative_ids)
   end
 
   def set_suppliers

@@ -38,10 +38,10 @@
     </div>
     <div class="row">
       <div class="col-sm-3 col-md-3 col-lg-3 col-md-offset-3">
-        <%= f.input :contact, collection: Person.all.map{ |p| [p.nameFull, p.id] }, include_blank: false %>
+        <%= f.input :contact_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] } %>
       </div>
       <div class="col-sm-3 col-md-3 col-lg-3">
-        <%= f.input :representative, collection: Person.all.map{ |p| [p.nameFull, p.id] }, include_blank: false %>
+        <%= f.input :representative_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] } %>
       </div>
     </div>
     <div class="row">
