@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_product, except: [:index, :new, :create]
   before_action :set_variable,  only:   [:new, :create,   :edit, :update]
+  helper_method :supplier_nameFull, :supplier_link
 
   def index
     @products = Product.all
@@ -50,6 +51,14 @@ class ProductsController < ApplicationController
 
   def set_product
     @product = Product.find(params[:id])
+  end
+
+  def supplier_nameFull supplier
+    supplier.nil? ? 'no' : supplier.nameFull
+  end
+
+  def supplier_link supplier
+    supplier.nil? ? "#" : supplier_path(supplier.id)
   end
 
   def set_variable
