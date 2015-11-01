@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151031131706) do
+ActiveRecord::Schema.define(version: 20151101101444) do
 
   create_table "companies", force: :cascade do |t|
     t.string   "companyCode", default: "", null: false
@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 20151031131706) do
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
     t.string   "companyType", default: "", null: false
+    t.string   "slug"
   end
 
   add_index "companies", ["companyCode"], name: "index_companies_on_companyCode", unique: true
+  add_index "companies", ["slug"], name: "index_companies_on_slug", unique: true
 
   create_table "company_roles", force: :cascade do |t|
     t.string   "role",       default: "", null: false
@@ -67,7 +69,10 @@ ActiveRecord::Schema.define(version: 20151031131706) do
     t.string   "email",      default: "", null: false
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.string   "slug"
   end
+
+  add_index "people", ["slug"], name: "index_people_on_slug", unique: true
 
   create_table "products", force: :cascade do |t|
     t.string   "code",          default: "",  null: false
@@ -109,9 +114,11 @@ ActiveRecord::Schema.define(version: 20151031131706) do
     t.datetime "updated_at",                          null: false
     t.string   "phone"
     t.integer  "sex",                    default: 0
+    t.string   "slug"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["slug"], name: "index_users_on_slug", unique: true
 
 end
