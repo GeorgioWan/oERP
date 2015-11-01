@@ -46,6 +46,9 @@ gem 'simple_form'
 gem 'rails-i18n'
 gem 'devise-i18n'
 
+gem 'friendly_id', '~> 5.1.0'
+gem 'babosa'
+
 group :development, :test do
   # Use hirb, pry, awesome_print in Console
   gem 'awesome_rails_console'

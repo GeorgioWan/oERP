@@ -24,7 +24,7 @@
         <th>tag tag</th>
         <th><%= product.price %></th>
         <th><%= product.stock %></th>
-        <th><%= link_to product.company.nameFull, supplier_path(product.company.id) %></th>
+        <th><%= link_to supplier_nameFull(product.company), supplier_link(product.company) %></th>
         <th class="text-right">
           <%= link_to product, class: "btn btn-sm btn-default" do %><i class="glyphicon glyphicon-oil"></i><% end %>
           <%= link_to edit_product_path(product.id), class: "btn btn-sm btn-primary" do %>
