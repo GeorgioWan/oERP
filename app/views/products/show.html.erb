@@ -2,6 +2,7 @@
 <hr>
 
 <ul>
+  <li><%= image_tag @product.image_url(:thumb) if @product.image? %></li>
   <li><%= @product.code %></li>
   <li><%= @product.name %></li>
   <li><%= @product.unit %></li>

@@ -14,4 +14,8 @@ class Product < ActiveRecord::Base
   def normalize_friendly_id(input)
     "#{code}-#{input.to_s.to_slug.normalize.to_s}"
   end
+
+  ###### Carrierwave ######
+  mount_uploader :image, ProductImgUploader
+
 end
