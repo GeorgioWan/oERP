@@ -46,7 +46,8 @@ class ProductsController < ApplicationController
 
   def product_params
     params.require(:product).permit( :code,  :name, :unit,  :price, :bargain_price, :end_date, :company_id,
-                                     :buffer_stock, :stock, :cost,  :description,   :remark, :image)
+                                     :buffer_stock, :stock, :cost,  :description,   :remark,
+                                     :image, :image_cache, :remove_image)
   end
 
   def set_product
