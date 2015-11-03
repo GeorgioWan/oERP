@@ -38,10 +38,14 @@
     </div>
     <div class="row">
       <div class="col-sm-3  col-md-offset-3">
-        <%= f.input :contact_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] } %>
+        <%= f.label 'Conatct' %>
+        <%= f.input :contact_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] },
+            label: false, prompt: "選擇聯絡人..." %>
       </div>
       <div class="col-sm-3 ">
-        <%= f.input :representative_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] } %>
+        <%= f.label 'Representative' %>
+        <%= f.input :representative_ids, collection: Person.all.map{ |p| [p.nameFull, p.id] },
+            label: false, prompt: "選擇負責人..." %>
       </div>
     </div>
     <div class="row">
