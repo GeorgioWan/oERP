@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151101101444) do
+ActiveRecord::Schema.define(version: 20151104061008) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "title",      default: "", null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "categories", ["title"], name: "index_categories_on_title", unique: true
 
   create_table "companies", force: :cascade do |t|
     t.string   "companyCode", default: "", null: false
@@ -91,8 +99,10 @@ ActiveRecord::Schema.define(version: 20151101101444) do
     t.datetime "updated_at",                  null: false
     t.integer  "company_id"
     t.string   "slug"
+    t.integer  "category_id"
   end
 
+  add_index "products", ["category_id"], name: "index_products_on_category_id"
   add_index "products", ["code"], name: "index_products_on_code", unique: true
   add_index "products", ["company_id"], name: "index_products_on_company_id"
   add_index "products", ["name"], name: "index_products_on_name", unique: true

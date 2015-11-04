@@ -21,7 +21,7 @@
         <th><%= link_to product.code, product %></th>
         <th><%= link_to product.name, product %></th>
         <th><%= product.unit %></th>
-        <th>tag tag</th>
+        <th><%= product.category.nil? ? '無' : product.category.title %></th>
         <th><%= product.price %></th>
         <th><%= product.stock %></th>
         <th><%= link_to supplier_nameFull(product.company), supplier_link(product.company) %></th>

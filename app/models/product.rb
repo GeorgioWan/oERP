@@ -1,6 +1,7 @@
 class Product < ActiveRecord::Base
   ###### Association ######
   belongs_to :company
+  belongs_to :category
 
   ###### Validate ######
   validates_uniqueness_of   :code, :name
