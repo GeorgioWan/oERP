@@ -39,21 +39,28 @@ I also do this setting( *Preferences > Settings > User* ) :
 
 ### **Installation**
 
-<i class="icon-download"></i> Clone *oERP* repo:
+* Clone *oERP* repo:
 ```
  git clone https://github.com/GeorgioWan/oERP.git
 ```
 
-<i class="icon-hdd"> Remember to bundle install:
+* Cause we use **Carrierwave** with **RMagick** to upload image, so you should install `libmagickwand-dev` first:
+```
+sudo apt-get install libmagickwand-dev
+```
+> [Here is my note](http://georgiola-blog.logdown.com/notes/307578/rails-function-upload-pictures-via-carrierwave) about Carrierwave
+
+* Remember to bundle install:
 ```ruby
  bundle
 ```
 
-<i class="icon-folder"> Then, run:
+* Then, run:
 ```ruby
  rake db:migrate
 ```
-### 2015.10.29
+
+### **Seed and Rebuild**
 * 新增 **seed** 方便生成 data
 ```ruby
  rake db:seed
